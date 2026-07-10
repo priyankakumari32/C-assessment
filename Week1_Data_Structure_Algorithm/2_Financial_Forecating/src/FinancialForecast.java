@@ -1,4 +1,4 @@
-public class FinancialForecast {
+public class FinancialForecast { 
 
     public static double predictValue(double currentValue, double growthRate, int years) {
 

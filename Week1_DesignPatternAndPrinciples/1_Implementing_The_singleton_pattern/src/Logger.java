@@ -1,5 +1,5 @@
 public class Logger {
-    private static Logger loggerInstance;
+    private static Logger loggerInstance; // Singleton instance
 
     private String username;
     private String password;
