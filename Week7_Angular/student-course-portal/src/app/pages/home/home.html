@@ -1,14 +1,43 @@
-<h1>Welcome to Student Course Portal</h1>
+<h1>{{ portalName }}</h1>
 
 <p>
-This portal allows students to browse available courses,
-enroll in courses and view their profile.
+Welcome to the Student Course Portal.
 </p>
+<p><strong>Available Courses:</strong> {{ availableCourses }}</p>
 
 <hr>
 
-<h3>Portal Statistics</h3>
+<button
+  [disabled]="!isPortalActive"
+  (click)="onEnrollClick()">
+  Enroll Now
+</button>
 
-<p>Courses Available : 12</p>
-<p>Enrolled : 3</p>
-<p>GPA : 3.8</p>
+<p>{{ message }}</p>
+
+<hr>
+
+<h3>Search Courses</h3>
+
+<input
+type="text"
+[(ngModel)]="searchTerm"
+placeholder="Search course">
+
+<p>Searching for: {{ searchTerm }}</p>
+<hr>
+
+<h2>Course Card</h2>
+<hr>
+
+<h2>Available Courses</h2>
+
+<app-course-card
+    *ngFor="let c of courses"
+    [course]="c"
+    (enrollRequested)="onEnroll($event)">
+</app-course-card>
+
+<p *ngIf="selectedCourseId">
+    Selected Course ID: {{ selectedCourseId }}
+</p>
